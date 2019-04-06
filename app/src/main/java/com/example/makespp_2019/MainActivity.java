@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         button = findViewById(R.id.convert);
         button.setOnClickListener(v -> {
-            for (char letter : input.getText().toString().toCharArray())
+            String morseCode = plainTextToMorse(input.getText().toString());
+            for (char letter : morseCode.toCharArray())
                 switch (letter) {
                     case '.':
                         vibrator.vibrate(100);
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
         });
+
+    }
+
+    private String plainTextToMorse(String toString) {
 
     }
 
