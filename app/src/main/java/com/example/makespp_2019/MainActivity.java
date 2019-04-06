@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
+        //asdfasdf
+
 
     }
 }
