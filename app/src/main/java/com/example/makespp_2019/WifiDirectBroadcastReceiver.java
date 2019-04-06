@@ -14,7 +14,6 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
     public WifiP2pManager mManager;
     public WifiP2pManager.Channel mChannel;
     public MainActivity mActivity;
-    Communicate communicate;
 
     public WiFiDirectBroadcastReceiver(WifiP2pManager manager,
                                        WifiP2pManager.Channel channel,MainActivity activity) {
@@ -22,16 +21,13 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
         this.mManager = manager;
         this.mChannel = channel;
         this.mActivity = activity;
-        this.communicate=(Communicate)activity;
     }
 
     public WifiP2pManager.GroupInfoListener groupInfoListener=new WifiP2pManager.GroupInfoListener() {
         @Override
         public void onGroupInfoAvailable(WifiP2pGroup group) {
             if(group!=null){
-                Log.e(MainActivity.TAG,group.getClientList().toString());
-                communicate.connection(group.getClientList().toString());
-            }
+                Log.e(MainActivity.TAG,group.getClientList().toString()); }
         }
 
     };
@@ -43,7 +39,6 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
                 return;
             }else{
                 Log.e(MainActivity.TAG,peerList.getDeviceList().toString());
-                communicate.onGetPeerList(peerList);
             }
 
         }
