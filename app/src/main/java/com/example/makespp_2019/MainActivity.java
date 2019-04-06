@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity{
 
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-		input = findViewById(R.id.input);
-
-		button = findViewById(R.id.convert);
 		button.setOnClickListener(v -> {
 			String morseCode = MorseCodeTranslator.plainTextToMorse(input.getText().toString());
 			for (char letter : morseCode.toCharArray())
