@@ -4,36 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/woodbackground"
+    tools:context=".guiSwitcherClass" >
 
-    <Button
-        android:id="@+id/convert"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Button"
+        android:fontFamily="@font/croissant_one"
+        android:text=" Morse Code Radio"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.207" />
+
+    <ImageButton
+        android:id="@+id/sendButton"
+        android:layout_width="120dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.314"
+        app:srcCompat="@drawable/mahoganybutton" />
 
-    <EditText
-        android:id="@+id/input"
+    <TextView
+        android:id="@+id/sendText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/croissant_one"
+        android:gravity="center"
+        android:text="Send"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sendButton"
+        app:layout_constraintEnd_toEndOf="@+id/sendButton"
+        app:layout_constraintStart_toStartOf="@+id/sendButton"
+        app:layout_constraintTop_toTopOf="@+id/sendButton" />
+
+    <ImageButton
+        android:id="@+id/receiveButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendText"
+        app:layout_constraintVertical_bias="0.363"
+        app:srcCompat="@drawable/mahoganybutton" />
+
+    <TextView
+        android:id="@+id/receiveText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/croissant_one"
+        android:gravity="center"
+        android:text="Receive"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/receiveButton"
+        app:layout_constraintEnd_toEndOf="@+id/receiveButton"
+        app:layout_constraintStart_toStartOf="@+id/receiveButton"
+        app:layout_constraintTop_toTopOf="@+id/receiveButton" />
+
+    <TextView
+        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=". -    - - ."
-        app:layout_constraintBottom_toTopOf="@+id/convert"
+        android:fontFamily="@font/croissant_one"
+        android:text="By: Akshay, Omar, Sahaj & Tushar"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/sendText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.23" />
 
 </android.support.constraint.ConstraintLayout>

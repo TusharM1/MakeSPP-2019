@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 import static java.lang.Thread.sleep;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
 	Button button;
 	EditText input;
