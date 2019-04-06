@@ -16,6 +16,14 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
     public static final String TAG = "WiFiDirectBroadcastReceiver";
     Communicate communicate;
 
+    public WifiDirectBroadcastReceiver(WifiP2pManager managerIn, WifiP2pManager.Channel channelIn, MainActivity activityIn){
+        super();
+        this.manager = managerIn;
+        this.channel = channelIn;
+        this.activity = activityIn;
+        this.communicate = (Communicate)activityIn;
+    }
+
     public WifiP2pManager.GroupInfoListener groupInfoListener=new WifiP2pManager.GroupInfoListener() {
         @Override
         public void onGroupInfoAvailable(WifiP2pGroup group) {
@@ -40,6 +48,10 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
+        String action = intent.getAction();
+        if(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals((action))){
+            int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
+            if(state =- WifiP2pManager.WIFI_P2P_STATE_ENABLED)
+        }
     }
 }
