@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/woodbackground"
-    tools:context=".guiSwitcherClass" >
+    tools:context=".MainActivity" >
 
     <TextView
         android:id="@+id/title"
@@ -94,7 +94,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/croissant_one"
-        android:text="By: Akshay, Omar, Sahaj & Tushar"
+        android:text="By: Akshay, Omar, Sahaj and Tushar"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/sendText"
