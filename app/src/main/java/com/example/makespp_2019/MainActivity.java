@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     BroadcastReceiver mReceiver;
     public IntentFilter mIntentFilter;
 
-
+//adfadsfasdfa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

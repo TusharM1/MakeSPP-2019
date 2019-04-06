@@ -7,7 +7,7 @@ import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pGroup;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
-
+//asdfadfasdfa
 public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
 
     public static final String TAG ="WiFiDirectBroadcastReceiver" ;
