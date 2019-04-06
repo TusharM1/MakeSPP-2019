@@ -2,13 +2,22 @@ package com.example.makespp_2019;
 
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Vibrator;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.TreeMap;
 
@@ -20,16 +29,33 @@ public class SendMessage extends AppCompatActivity {
     Vibrator vibrator;
     ImageButton sendButton;
     ImageButton backToMain;
+    FirebaseDatabase mDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
-
+        FirebaseApp.initializeApp(this);
         sendInput = findViewById(R.id.sendEnterText);
         sendButton = findViewById(R.id.sendSendButton);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        mDatabaseRef = FirebaseDatabase.getInstance();
+        DatabaseReference myRef= mDatabaseRef.getReference("STRING");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d("HELP", "Value is: " + value);
+            }
 
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MEPLEASE", "Failed to read value.", error.toException());
+            }
+        });
         backToMain = findViewById(R.id.sendHomeButton);
         backToMain.setOnClickListener(v -> {
             Intent intent = new Intent(SendMessage.this, MainActivity.class);
@@ -38,9 +64,13 @@ public class SendMessage extends AppCompatActivity {
 
         sendButton.setOnClickListener(v -> {
             String morseCode = SendMessage.MorseCodeTranslator.plainTextToMorse(sendInput.getText().toString());
+            myRef.setValue(morseCode);
+            Log.wtf("HOLY", "HELP ME");
+
             for (char letter : morseCode.toCharArray())
                 switch (letter) {
                     case '.':
+
                         vibrator.vibrate(100);
                         break;
                     case '-':
