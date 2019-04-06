@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity{
     BroadcastReceiver receiver;
     private List<WifiP2pDevice> peers  = new ArrayList();
 
+
+
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
