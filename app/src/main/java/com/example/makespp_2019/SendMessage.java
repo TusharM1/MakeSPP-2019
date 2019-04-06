@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -65,10 +66,11 @@ public class SendMessage extends AppCompatActivity {
         sendButton.setOnClickListener(v -> {
             String morseCode = SendMessage.MorseCodeTranslator.plainTextToMorse(sendInput.getText().toString());
             myRef.setValue(morseCode);
+            Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
             Log.wtf("HOLY", "HELP ME");
 
-            for (char letter : morseCode.toCharArray())
-                switch (letter) {
+            //for (char letter : morseCode.toCharArray())
+                /*switch (letter) {
                     case '.':
 
                         vibrator.vibrate(100);
@@ -83,7 +85,7 @@ public class SendMessage extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         break;
-                }
+                }*/
         });
     }
     private static class MorseCodeTranslator {
